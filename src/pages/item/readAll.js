@@ -8,7 +8,7 @@ const ReadAll = () => {
 
     useEffect(() => {
         const getAllItems = async() => {
-            const response = await fetch("http://localhost:5000")
+            const response = await fetch("https://tundoku-tower.onrender.com")
             const jsonResponse = await response.json()
             setAllItems(jsonResponse)
         }
