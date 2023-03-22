@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import {useState, useEffect} from "react"
+import useAuth from "../../utils/useAuth"
 
 const UpdateItem = () => {
 
@@ -10,6 +11,7 @@ const UpdateItem = () => {
     const [isbn, setISBN] = useState("")
     const [publisher, setPublisher] = useState("")
     const [image, setImage] = useState("")
+    const [email, setEmail] = useState("")
 
     useEffect(() => {
         const getSingleItem = async() => {
@@ -20,6 +22,7 @@ const UpdateItem = () => {
             setISBN(jsonResponse.singleItem.isbn)
             setPublisher(jsonResponse.singleItem.publisher)
             setImage(jsonResponse.singleItem.image)
+            setEmail(jsonResponse.singleItem.email)
         }
         getSingleItem()
     }, [params.id])
@@ -48,20 +51,26 @@ const UpdateItem = () => {
             alert("アイテム編集失敗")
         }
     }
+
+    const loginUser = useAuth()
+    if(loginUser === email){
+        return (
+            <div>
+                <h1>アイテム編集</h1>
+                <form onSubmit={handleSubmit}>
+                    <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text" name="title" placeholder="アイテム名" required />
+                    <input value={author} onChange={(e)=>setAuthor(e.target.value)} type="text" name="author" placeholder="著者名" required />
+                    <input value={isbn} onChange={(e)=>setISBN(e.target.value)} type="text" name="isbn" placeholder="ISBN" required />
+                    <input value={publisher} onChange={(e)=>setPublisher(e.target.value)} type="text" name="publisher" placeholder="出版社" required />
+                    <input value={image} onChange={(e)=>setImage(e.target.value)} type="text" name="image" placeholder="画像" required />
+                    <button>編集</button>
+                </form>
+            </div>
+        )
+    }else{
+        return <h1>権限がありません</h1>
+    }
     
-    return (
-        <div>
-            <h1>アイテム編集</h1>
-            <form onSubmit={handleSubmit}>
-                <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text" name="title" placeholder="アイテム名" required />
-                <input value={author} onChange={(e)=>setAuthor(e.target.value)} type="text" name="author" placeholder="著者名" required />
-                <input value={isbn} onChange={(e)=>setISBN(e.target.value)} type="text" name="isbn" placeholder="ISBN" required />
-                <input value={publisher} onChange={(e)=>setPublisher(e.target.value)} type="text" name="publisher" placeholder="出版社" required />
-                <input value={image} onChange={(e)=>setImage(e.target.value)} type="text" name="image" placeholder="画像" required />
-                <button>編集</button>
-            </form>
-        </div>
-    )
 }
 
 export default UpdateItem

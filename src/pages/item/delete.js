@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import {useState, useEffect} from "react"
+import useAuth from "../../utils/useAuth"
 
 const DeleteItem = () => {
 
@@ -10,6 +11,7 @@ const DeleteItem = () => {
     const [isbn, setISBN] = useState("")
     const [publisher, setPublisher] = useState("")
     const [image, setImage] = useState("")
+    const [email, setEmail] = useState("")
 
     useEffect(() => {
         const getSingleItem = async() => {
@@ -20,6 +22,7 @@ const DeleteItem = () => {
             setISBN(jsonResponse.singleItem.isbn)
             setPublisher(jsonResponse.singleItem.publisher)
             setImage(jsonResponse.singleItem.image)
+            setEmail(jsonResponse.singleItem.email)
         }
         getSingleItem()
     }, [params.id])
@@ -41,20 +44,27 @@ const DeleteItem = () => {
             alert("アイテム削除失敗")
         }
     }
+
+    const loginUser = useAuth()
+
+    if(loginUser === email){
+        return (
+            <div>
+                <h1>アイテム削除</h1>
+                <form onSubmit={handleSubmit}>
+                    <h2>{title}</h2>
+                    {image && <img src={require(`../../images${image}`)} alt="item"/>}
+                    <h3>{author}</h3>
+                    <h4>{isbn}</h4>
+                    <h5>{publisher}</h5>
+                    <button>削除</button>
+                </form>
+            </div>
+        )
+    }else{
+        return <h1>権限がありません</h1>
+    }
     
-    return (
-        <div>
-            <h1>アイテム削除</h1>
-            <form onSubmit={handleSubmit}>
-                <h2>{title}</h2>
-                {image && <img src={require(`../../images${image}`)} alt="item"/>}
-                <h3>{author}</h3>
-                <h4>{isbn}</h4>
-                <h5>{publisher}</h5>
-                <button>削除</button>
-            </form>
-        </div>
-    )
 }
 
 export default DeleteItem
