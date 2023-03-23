@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import useAuth from "../../utils/useAuth"
 
 const CreateItem = () => {
@@ -32,6 +32,10 @@ const CreateItem = () => {
             alert("アイテム作成失敗")
         }
     }
+
+    useEffect(() => {
+        document.title = "作成ページ"
+    })
 
     const loginUser = useAuth()
 

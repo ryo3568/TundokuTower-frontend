@@ -1,5 +1,5 @@
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const Login = () => {
     const [email, setEmail] = useState("")
@@ -26,6 +26,10 @@ const Login = () => {
             alert("ログイン失敗")
         }
     }
+
+    useEffect(() => {
+        document.title = "ログインページ"
+    })
 
     return (
         <div>

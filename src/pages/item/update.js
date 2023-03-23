@@ -14,6 +14,8 @@ const UpdateItem = () => {
     const [email, setEmail] = useState("")
 
     useEffect(() => {
+
+        document.title = "編集ページ"
         const getSingleItem = async() => {
             const response = await fetch(`https://tundoku-tower.onrender.com/item/${params.id}`)
             const jsonResponse = await response.json()

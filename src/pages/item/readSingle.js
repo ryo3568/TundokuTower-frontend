@@ -14,6 +14,8 @@ const ReadSingleItem = () => {
 
 
     useEffect(() => {
+        document.title = title
+
         const getSingleItem = async() => {
             const response = await fetch(`https://tundoku-tower.onrender.com/item/${params.id}`)
             const jsonResponse = await response.json()
@@ -24,7 +26,7 @@ const ReadSingleItem = () => {
             setImage(jsonResponse.singleItem.image)
         }
         getSingleItem()
-    }, [params.id])
+    }, [params.id, title])
     
     return (
         <div>

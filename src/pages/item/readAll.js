@@ -7,6 +7,8 @@ const ReadAll = () => {
     const [allItems, setAllItems] = useState()
 
     useEffect(() => {
+        document.title = "Tundoku Tower"
+        
         const getAllItems = async() => {
             const response = await fetch("https://tundoku-tower.onrender.com")
             const jsonResponse = await response.json()
@@ -14,7 +16,7 @@ const ReadAll = () => {
         }
         getAllItems()
     }, [])
-
+    
     return (
         <div>
             <div>

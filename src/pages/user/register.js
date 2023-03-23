@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const Register = () => {
     const [name, setName] = useState("")
@@ -26,6 +26,10 @@ const Register = () => {
             alert("ユーザー登録失敗")
         }
     }
+
+    useEffect(() => {
+        document.title = "登録ページ"
+    }, [])
 
     return (
         <div>
