@@ -8,6 +8,7 @@ import Update from "./pages/item/update"
 import Delete from "./pages/item/delete"
 import Header from "./components/header"
 import Footer from "./components/footer"
+import Main from "./pages/item/main"
 import "./App.css"
 
 const App = () => {
@@ -18,7 +19,8 @@ const App = () => {
       <Routes>
         <Route path="/user/register" element={<Register />} />
         <Route path="/user/login" element={<Login />} />
-        <Route path="/" element={<ReadAll />} />
+        <Route path="/item/all" element={<ReadAll />} />
+        <Route path="/" element={<Main />} />
         <Route path="/item/:id" element={<ReadSingle />} />
         <Route path="/item/create" element={<Create />} />
         <Route path="/item/update/:id" element={<Update />} />

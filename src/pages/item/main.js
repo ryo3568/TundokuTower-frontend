@@ -1,11 +1,11 @@
-
+import "../../App.css"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import bookshelf from "../../images/hondana.png"
 import cat from "../../images/kuroneko.png"
-import tundoku from "../../images/tsundoku.png"
+import tsundoku from "../../images/tsundoku.png"
 
-const ReadAll = () => {
+const Main = () => {
 
     const [allItems, setAllItems] = useState()
 
@@ -23,20 +23,12 @@ const ReadAll = () => {
     return (
         <div>
             <div>
-                {allItems && allItems.allItems.map(item => 
-                    <Link to={`/item/${item._id}`} key={item._id}>
-                        <img src={item.image} alt="item" />
-                        <div>
-                            <h2>{item.title}</h2>
-                            <h3>{item.author}</h3>
-                            <h4>{item.isbn}</h4>
-                            <h5>{item.publisher}</h5>
-                        </div>
-                    </Link>
-                )}
+                <Link to="/item/all"><img className="bookshelf" src={bookshelf}/></Link>
+                <img className="cat" src={cat} />
+                <Link to="/item/all"><img className="tsundoku" src={tsundoku}/></Link>
             </div>
         </div>
     )
 }
 
-export default ReadAll
+export default Main
