@@ -1,8 +1,7 @@
 import { useParams, Link } from "react-router-dom"
 import {useState, useEffect} from "react"
 
-
-const ReadSingleItem = () => {
+const ReadSingle = () => {
 
     const params = useParams()
 
@@ -17,7 +16,7 @@ const ReadSingleItem = () => {
         document.title = title
 
         const getSingleItem = async() => {
-            const response = await fetch(`http://localhost:5000/item/${params.id}`)
+            const response = await fetch(`http://localhost:5000/item/single/${params.id}`)
             const jsonResponse = await response.json()
             setTitle(jsonResponse.singleItem.title)
             setAuthor(jsonResponse.singleItem.author)
@@ -31,7 +30,7 @@ const ReadSingleItem = () => {
     return (
         <div>
             <div>
-                {image && <img src={require(`../../images${image}`)} alt="item" />}
+                {image && <img src={image} alt="item" />}
             </div>
             <div>
                 <h1>{title}</h1>
@@ -47,4 +46,4 @@ const ReadSingleItem = () => {
     )
 }
 
-export default ReadSingleItem
+export default ReadSingle
