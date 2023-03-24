@@ -1,9 +1,11 @@
 
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
-const Login = () => {
+const Login = (props) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate()
 
     const handleSubmit = async(e) => {
         e.preventDefault()
@@ -22,6 +24,8 @@ const Login = () => {
             const jsonResponse = await response.json()
             localStorage.setItem("token", jsonResponse.token)
             alert(jsonResponse.message)
+            props.setLogin(true)
+            navigate("/")
         }catch(err){
             alert("ログイン失敗")
         }

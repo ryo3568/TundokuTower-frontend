@@ -1,4 +1,5 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom"
+import {useState} from "react"
 import Register from "./pages/user/register"
 import Login from "./pages/user/login"
 import ReadAll from "./pages/item/readAll"
@@ -12,14 +13,16 @@ import Main from "./pages/item/main"
 import "./App.css"
 
 const App = () => {
+  const [login, setLogin] = useState(false)
+  console.log(login)
   return (
     <BrowserRouter>
     <div>
-      <Header />
+      <Header login={login} />
       <Routes>
         <Route path="/user/register" element={<Register />} />
-        <Route path="/user/login" element={<Login />} />
-        <Route path="/item/all" element={<ReadAll />} />
+        <Route path="/user/login" element={<Login setLogin={setLogin}/>} />
+        <Route path="/item" element={<ReadAll />} />
         <Route path="/" element={<Main />} />
         <Route path="/item/:id" element={<ReadSingle />} />
         <Route path="/item/create" element={<Create />} />
