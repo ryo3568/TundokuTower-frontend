@@ -1,21 +1,23 @@
 
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import bookshelf from "../../images/hondana.png"
-import cat from "../../images/kuroneko.png"
-import tundoku from "../../images/tsundoku.png"
 
 const ReadAll = () => {
 
-    const [allItems, setAllItems] = useState()
+    const [finishedItems, setFinishedItems] = useState()
+    const [unreadItems, setUnreadItems] = useState()
 
     useEffect(() => {
-        document.title = "Tundoku Tower"
+        document.title = "All Books"
 
         const getAllItems = async() => {
-            const response = await fetch("http://localhost:5000")
-            const jsonResponse = await response.json()
-            setAllItems(jsonResponse)
+            const finishedResponse = await fetch("http://localhost:5000/item/finished")
+            const jsonFinishedResponse = await finishedResponse.json()
+            setFinishedItems(jsonFinishedResponse)
+
+            const unreadResponse = await fetch("http://localhost:5000/item/unread")
+            const jsonUnreadResponse = await unreadResponse.json()
+            setUnreadItems(jsonUnreadResponse)
         }
         getAllItems()
     }, [])
@@ -23,17 +25,35 @@ const ReadAll = () => {
     return (
         <div>
             <div>
-                {allItems && allItems.allItems.map(item => 
-                    <Link to={`/item/${item._id}`} key={item._id}>
-                        <img src={item.image} alt="item" />
-                        <div>
-                            <h2>{item.title}</h2>
-                            <h3>{item.author}</h3>
-                            <h4>{item.isbn}</h4>
-                            <h5>{item.publisher}</h5>
-                        </div>
-                    </Link>
-                )}
+                <h1>蔵書一覧</h1>
+                <div>
+                    <h2>読了本</h2>
+                    {finishedItems && finishedItems.finishedItems.map(item => 
+                        <Link to={`/item/${item._id}`} key={item._id}>
+                            <img src={item.image} alt="item" />
+                            <div>
+                                <h2>{item.title}</h2>
+                                <h3>{item.author}</h3>
+                                <h4>{item.isbn}</h4>
+                                <h5>{item.publisher}</h5>
+                            </div>
+                        </Link>
+                    )}
+                </div>
+                <div>
+                    <h2>積読本</h2>
+                    {unreadItems && unreadItems.unreadItems.map(item => 
+                        <Link to={`/item/${item._id}`} key={item._id}>
+                            <img src={item.image} alt="item" />
+                            <div>
+                                <h2>{item.title}</h2>
+                                <h3>{item.author}</h3>
+                                <h4>{item.isbn}</h4>
+                                <h5>{item.publisher}</h5>
+                            </div>
+                        </Link>
+                    )}
+                </div>
             </div>
         </div>
     )

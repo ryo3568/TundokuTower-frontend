@@ -10,7 +10,7 @@ const Header = (props) => {
             return (
                 <ul className="header-nav">
                     <li><Link to="/item/create"><img className="registerBook" src={registerBook} /></Link></li>
-                    <li><Link to="/item"><img className="allBook" src={allBook} /></Link></li>
+                    <li><Link to="/item/all"><img className="allBook" src={allBook} /></Link></li>
                     <li><Link to="/"><img className="account" src={account} /></Link></li>
                 </ul>
             )
