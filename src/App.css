@@ -6,29 +6,34 @@ header{
     height: 140px;
 }
 
-.header-nav {
+.header-nav-logout{
     list-style: none;
     float:right;
     padding: 20px;
 }
 
-
 li{
     float:left;
     padding: 20px;
+
 }
 
+.header-nav-login{
+    float:right;
+    list-style: none;
+   
+}
 
 .allBook {
-    height:200px;
+    height:80px;
 }
 
 .registerBook {
-    height: 200px;
+    height: 80px;
 }
 
 .account {
-    height: 200px;
+    height: 80px;
 }
 
 .header-logo {
@@ -74,6 +79,9 @@ path: src/pages/item/main.js */
 
 /* ログイン画面
 path: src/pages/user/login.js */
+
+
+
 
 /* ユーザー登録画面
 path: src/pages/user/register.js */
