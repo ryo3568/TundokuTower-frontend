@@ -43,7 +43,7 @@ const App = () => {
         <Route path="/item/all" element={<ReadAll />} />
         <Route path="/item/finished" element={<ReadFinished />} />
         <Route path="/item/unread" element={<ReadUnread />} />
-        <Route path="/" element={<Main books={books}/>} />
+        <Route path="/" element={<Main login={login} books={books}/>} />
         <Route path="/item/single/:id" element={<ReadSingle books={books} setBooks={setBooks}/>} />
         <Route path="/item/create" element={<Create />} />
         <Route path="/item/update/:id" element={<Update />} />
