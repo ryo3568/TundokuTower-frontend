@@ -48,7 +48,7 @@ const Main = (props) => {
         setStyle({
             height: object.height * 300 / height
         })
-    }, [props.books, object])
+    }, [props.books, object, height])
 
     const changeObject = () => {
         if(object.name === "コップ") setObject(cat)

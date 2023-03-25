@@ -7,8 +7,6 @@ import ReadSingle from "./pages/item/readSingle"
 import ReadFinished from "./pages/item/readFinished"
 import ReadUnread from "./pages/item/readUnread"
 import Create from "./pages/item/create"
-// import Update from "./pages/item/update"
-import Delete from "./pages/item/delete"
 import Header from "./components/header"
 import Footer from "./components/footer"
 import Main from "./pages/item/main"
@@ -59,8 +57,6 @@ const App = () => {
         <Route path="/" element={<Main login={login} books={books}/>} />
         <Route path="/item/single/:id" element={<ReadSingle books={books} setBooks={setBooks}/>} />
         <Route path="/item/create" element={<Create books={books} setBooks={setBooks} />} />
-        {/* <Route path="/item/update/:id" element={<Update />} /> */}
-        <Route path="/item/delete/:id" element={<Delete />} />
         <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
       <Footer />
