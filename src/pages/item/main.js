@@ -49,8 +49,8 @@ const Main = (props) => {
                 <div>
                     <h1>積読本の冊数：{props.books.numbers}冊</h1>
                     <h1>積読の高さ:{calc_backwidth()}cm</h1>
-                    <h1>対象物：{object.name}</h1>
-                    <h1>対象物の高さ：{object.height}cm</h1>
+                    <h1>比較対象：{object.name}</h1>
+                    <h1>比較対象の高さ：{object.height}cm</h1>
                 </div>
             }
             <div>
