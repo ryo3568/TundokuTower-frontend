@@ -1,9 +1,23 @@
 /* ヘッダー
 path: src/components/header.js */
 
+header{
+    background-color: #5FC7D6;
+    height: 140px;
+}
+
 .header-nav {
     list-style: none;
+    float:right;
+    padding: 20px;
 }
+
+
+li{
+    float:left;
+    padding: 20px;
+}
+
 
 .allBook {
     height:200px;
@@ -18,7 +32,10 @@ path: src/components/header.js */
 }
 
 .header-logo {
+    margin-top: 20px;
+    margin-left: 20px;
     height: 100px;
+    float: left;
 }
 
 /* フッター

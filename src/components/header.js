@@ -19,7 +19,7 @@ const Header = (props) => {
         else{
             return(
                 <ul className="header-nav">
-                    <li><Link to="/user/register">ユーザー登録</Link></li>
+                    <li><Link to="/user/register">新規登録</Link></li>
                     <li><Link to="/user/login">ログイン</Link></li>
                 </ul>
             )
