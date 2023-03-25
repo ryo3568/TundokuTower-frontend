@@ -41,6 +41,22 @@ li{
 /* フッター
 path: src/components/footer.js */
 
+footer{
+    height: 90px;
+}
+.Tenpensya-logo{
+    height:70px;
+    float:left;
+    padding:10px;
+}
+
+p{
+    border-top: 5px dotted;
+    padding-top: 90px;
+    text-align: center;
+
+}
+
 /* メイン画面　
 path: src/pages/item/main.js */
 

@@ -35,7 +35,7 @@ const Register = () => {
         <div>
             <h1>登録ページ</h1>
             <form onSubmit={handleSubmit}>
-                <input value={name} onChange={(e)=> setName(e.target.value)} type="text" name="name" placeholder="名前" required />
+                <input value={name} onChange={(e)=> setName(e.target.value)} type="text" name="name" placeholder="ユーザー名" required />
                 <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" name="email" placeholder="メールアドレス" required />
                 <input value={password} onChange={(e) => setPassword(e.target.value)} type="text" name="password" placeholder="パスワード" required />
                 <button>登録</button>
