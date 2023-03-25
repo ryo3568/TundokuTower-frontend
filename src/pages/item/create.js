@@ -58,10 +58,18 @@ const CreateItem = (props) => {
                     status: false,
                 })
             })
-            props.setBooks({
-                pages: props.books.pages + book.items[0].volumeInfo.pageCount, 
-                numbers: props.books.numbers + 1,
-            })
+            if(item.volumeInfo.pageCount === 0){
+                props.setBooks({
+                    pages: props.books.pages + 300, 
+                    numbers: props.books.numbers + 1,
+                })
+            }
+            else{
+                props.setBooks({
+                    pages: props.books.pages + item.volumeInfo.pageCount, 
+                    numbers: props.books.numbers + 1,
+                })
+            }
             navigate("/")
         }catch(err){
             alert("アイテム作成失敗")
