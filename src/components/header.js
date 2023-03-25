@@ -6,13 +6,18 @@ import logo from "../images/logo.png"
 
 const Header = (props) => {
 
+    const logout = () => {
+        localStorage.removeItem('token')
+        props.setLogin(false)
+    }
+
     const show_nav = () => {
         if(props.login){
             return (
                 <ul className="header-nav-login">
                     <li><Link to="/item/create"><img className="registerBook" src={registerBook} /></Link></li>
                     <li><Link to="/item/all"><img className="allBook" src={allBook} /></Link></li>
-                    <li><Link to="/"><img className="account" src={account} /></Link></li>
+                    <li><Link to="/" onClick={logout}><img className="account" src={account} /></Link></li>
                 </ul>
             )
         }
