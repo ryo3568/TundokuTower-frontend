@@ -133,5 +133,9 @@ path: src/pages/item/readFinished.js */
 /* 本の登録画面
 path: src/pages/item/create.js */
 
+.candidate {
+    height: 200px;
+}
+
 /* 本の詳細画面
 path: src/pages/item/readSingle.js */

@@ -69,7 +69,7 @@ const Main = (props) => {
             <div className="main">
                 <Link to="/item/finished"><img className="bookshelf" src={bookshelf}/></Link>
                 <img className="cup" style={style} src={object.image} />
-                <button onClick={changeObject}>対象物を変更</button>
+                <button onClick={changeObject}>比較対象を変更</button>
                 <Link to="/item/unread"><img className="tsundoku" src={tsundoku}/></Link>
             </div>
         </div>
