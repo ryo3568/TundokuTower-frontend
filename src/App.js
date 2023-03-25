@@ -23,9 +23,9 @@ const App = () => {
 
   useEffect(() => {
     const getAllItems = async() => {
-      const response = await fetch("http://localhost:5000/item/all")
+      const response = await fetch("http://localhost:5000/item/unread")
       const jsonResponse = await response.json()
-      jsonResponse.allItems.map(item => {
+      jsonResponse.unreadItems.map(item => {
         books.pages += item.pages
         books.numbers += 1
       })
@@ -44,7 +44,7 @@ const App = () => {
         <Route path="/item/finished" element={<ReadFinished />} />
         <Route path="/item/unread" element={<ReadUnread />} />
         <Route path="/" element={<Main books={books}/>} />
-        <Route path="/item/single/:id" element={<ReadSingle />} />
+        <Route path="/item/single/:id" element={<ReadSingle books={books} setBooks={setBooks}/>} />
         <Route path="/item/create" element={<Create />} />
         <Route path="/item/update/:id" element={<Update />} />
         <Route path="/item/delete/:id" element={<Delete />} />

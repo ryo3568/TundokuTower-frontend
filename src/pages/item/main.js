@@ -31,7 +31,11 @@ const Main = (props) => {
     const [object, setObject] = useState(cat)
 
     const calc_backwidth = () => {
-        return (props.books.pages *  0.1/ 2 + 0.15 * 2) / 10
+        if(props.books.numbers == 0) return 0
+        var res = (props.books.pages *  0.1/ 2 + 0.15 * 2) *10
+        res = Math.round(res)
+        res /= 100
+        return res
     }
 
     useEffect(() => {
