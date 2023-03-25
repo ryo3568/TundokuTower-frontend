@@ -29,7 +29,7 @@ const ReadAll = () => {
                 <div>
                     <h2>読了本</h2>
                     {finishedItems && finishedItems.finishedItems.map(item => 
-                        <Link to={`/item/${item._id}`} key={item._id}>
+                        <Link to={`/item/single/${item._id}`} key={item._id}>
                             <img src={item.image} alt="item" />
                             <div>
                                 <h2>{item.title}</h2>
@@ -43,7 +43,7 @@ const ReadAll = () => {
                 <div>
                     <h2>積読本</h2>
                     {unreadItems && unreadItems.unreadItems.map(item => 
-                        <Link to={`/item/${item._id}`} key={item._id}>
+                        <Link to={`/item/single/${item._id}`} key={item._id}>
                             <img src={item.image} alt="item" />
                             <div>
                                 <h2>{item.title}</h2>

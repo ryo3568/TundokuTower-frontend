@@ -22,7 +22,7 @@ const ReadUnread = () => {
             <div>
                 <h1>積読本一覧</h1>
                 {unreadItems && unreadItems.unreadItems.map(item => 
-                    <Link to={`/item/${item._id}`} key={item._id}>
+                    <Link to={`/item/single/${item._id}`} key={item._id}>
                         <img src={item.image} alt="item" />
                         <div>
                             <h2>{item.title}</h2>
