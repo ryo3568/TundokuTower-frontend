@@ -170,5 +170,42 @@ path: src/pages/item/create.js */
     height: 200px;
 }
 
+.h1-create{
+    text-align: center;
+    margin:30px;
+}
+
+.create-box{
+    text-align: center;
+    margin:30px;
+}
+
+.search{
+    color:#fff;
+    font-size: 20px;
+    background-color: #5FC7D6;
+    border-color:#5FC7D6;
+    border-radius:5px;
+    margin:20px;
+    width: 150px;
+    height: 50px;
+}
+
+.create-text{
+    width: 300px;
+    height: 50px;
+    margin: 20px;
+    display: block;
+    margin:auto;
+}
+
+
+
+.create-text:focus{
+    outline: 0;
+    box-shadow: 0 0 0 2px #5FC7D6 inset;
+}
+
+
 /* 本の詳細画面
 path: src/pages/item/readSingle.js */
