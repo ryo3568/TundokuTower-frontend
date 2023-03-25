@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react"
-import { json } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import useAuth from "../../utils/useAuth"
 
-const CreateItem = () => {
+const CreateItem = (props) => {
+    const navigate = useNavigate() 
+
     const [title, setTitle] = useState("")
     const [author, setAuthor] = useState("")
     const [isbn, setISBN] = useState("")
@@ -39,8 +41,7 @@ const CreateItem = () => {
                     status: false,
                 })
             })
-            const jsonData = await response.json()
-            alert(jsonData.message)
+            navigate("/")
         }catch(err){
             alert("アイテム作成失敗")
         }

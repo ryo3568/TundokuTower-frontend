@@ -52,7 +52,7 @@ const App = () => {
         <Route path="/item/unread" element={<ReadUnread />} />
         <Route path="/" element={<Main login={login} books={books}/>} />
         <Route path="/item/single/:id" element={<ReadSingle books={books} setBooks={setBooks}/>} />
-        <Route path="/item/create" element={<Create />} />
+        <Route path="/item/create" element={<Create books={books} setBooks={setBooks} />} />
         {/* <Route path="/item/update/:id" element={<Update />} /> */}
         <Route path="/item/delete/:id" element={<Delete />} />
         <Route path="*" element={<h1>Page Not Found</h1>} />

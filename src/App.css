@@ -49,6 +49,7 @@ path: src/components/footer.js */
 footer{
     height: 90px;
 }
+
 .Tenpensya-logo{
     height:70px;
     float:left;
@@ -66,16 +67,14 @@ p{
 path: src/pages/item/main.js */
 
 .bookshelf {
-    height: 200px;
-}
-
-.cat {
-    height: 200px;
+    height: 500px;
 }
 
 .tsundoku {
-    height: 200px;
+    height: 300px;
 }
+
+
 
 /* ログイン画面
 path: src/pages/user/login.js */
@@ -100,7 +99,6 @@ h1{
     outline: 0;
     box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
 }
-
 
 
 /* 新規登録画面
