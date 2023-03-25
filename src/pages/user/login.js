@@ -37,8 +37,8 @@ const Login = (props) => {
     return (
 
         <div>
-            <h1>ログイン</h1>
-            <form onSubmit={handleSubmit}>
+        
+            <form className="login-box" onSubmit={handleSubmit}>
                 <input className="login-text" value={email} onChange={(e)=>setEmail(e.target.value)} type="text" name="email" placeholder="メールアドレス" required />
                 <input className="login-text" value={password} onChange={(e)=>setPassword(e.target.value)} type="text" name="password" placeholder="パスワード" required />
                 <button className="login">ログイン</button>
