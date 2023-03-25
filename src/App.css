@@ -156,6 +156,36 @@ path: src/pages/user/register.js */
 path: src/pages/item/readAll.js */
 
 
+.finishedItems{
+ display: flex;
+ flex-wrap: wrap;
+ align-items: center;
+ align-content:flex-start;
+}
+
+.unreadbooks{
+ display: flex;
+ flex-wrap: wrap;
+ align-items: center;
+ align-content:flex-start;
+ 
+}
+
+.unreadbooks-img{
+    margin: 20px;
+}
+
+.h3-unreadbooks{
+    font-size: 15px;
+    margin: 20px;
+}
+
+.h4-unreadbooks{
+    font-size:12px;
+    margin: 20px;
+}
+
+
 
 /* 積読本一覧画面
 path: src/pages/item/readUnread.js */
