@@ -10,25 +10,25 @@ import carImage from "../../images/car.png"
 
 const Main = (props) => {
 
-    const cup = {
-        "name": "コップ",
-        "height": 10,
-        "image": cupImage,
+    const objects = {
+        "cup": {
+            "name": "コップ",
+            "height": 10,
+            "image": cupImage,
+        },
+        "cat": {
+            "name": "猫",
+            "height": 40,
+            "image": catImage,
+        },
+        "car" :{
+            "name": "車",
+            "height": 200,
+            "image": carImage,
+        }
     }
 
-    const cat = {
-        "name": "猫",
-        "height": 40,
-        "image": catImage,
-    }
-
-    const car = {
-        "name": "車",
-        "height": 200,
-        "image": carImage,
-    }
-
-    const [object, setObject] = useState(cup)
+    const [object, setObject] = useState(objects.cup)
     const [height, setHeight] = useState()
     const [style, setStyle] = useState({
         height: object.height * 10
@@ -50,12 +50,6 @@ const Main = (props) => {
         })
     }, [props.books, object, height])
 
-    const changeObject = () => {
-        if(object.name === "コップ") setObject(cat)
-        else if(object.name === "猫") setObject(car)
-        else setObject(cup)
-    }
-    
     return (
         <div>
             {props.login && 
@@ -69,7 +63,12 @@ const Main = (props) => {
             <div className="main">
                 <Link to="/item/finished"><img className="bookshelf" src={bookshelf}/></Link>
                 <img className="cup" style={style} src={object.image} />
-                <button onClick={changeObject}>比較対象を変更</button>
+                <label htmlFor="object">比較対象</label>
+                <select name="object" onChange={(e) => setObject(objects[e.target.value])}>
+                    <option value="cup">コップ</option>
+                    <option value="cat">猫</option>
+                    <option value="car">車</option>
+                </select>
                 <Link to="/item/unread"><img className="tsundoku" src={tsundoku}/></Link>
             </div>
         </div>
