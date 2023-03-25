@@ -1,5 +1,5 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom"
-import {useState} from "react"
+import { useState, useEffect } from "react"
 import Register from "./pages/user/register"
 import Login from "./pages/user/login"
 import ReadAll from "./pages/item/readAll"
@@ -16,7 +16,23 @@ import "./App.css"
 
 const App = () => {
   const [login, setLogin] = useState(false)
-  console.log(login)
+  const [books, setBooks] = useState({
+    pages: 0,
+    numbers: 0,
+  })
+
+  useEffect(() => {
+    const getAllItems = async() => {
+      const response = await fetch("http://localhost:5000/item/all")
+      const jsonResponse = await response.json()
+      jsonResponse.allItems.map(item => {
+        books.pages += item.pages
+        books.numbers += 1
+      })
+    }
+    getAllItems()
+  }, [])
+
   return (
     <BrowserRouter>
     <div>
@@ -27,7 +43,7 @@ const App = () => {
         <Route path="/item/all" element={<ReadAll />} />
         <Route path="/item/finished" element={<ReadFinished />} />
         <Route path="/item/unread" element={<ReadUnread />} />
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main books={books}/>} />
         <Route path="/item/single/:id" element={<ReadSingle />} />
         <Route path="/item/create" element={<Create />} />
         <Route path="/item/update/:id" element={<Update />} />
