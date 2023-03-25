@@ -7,8 +7,6 @@ import ReadSingle from "./pages/item/readSingle"
 import ReadFinished from "./pages/item/readFinished"
 import ReadUnread from "./pages/item/readUnread"
 import Create from "./pages/item/create"
-// import Update from "./pages/item/update"
-import Delete from "./pages/item/delete"
 import Header from "./components/header"
 import Footer from "./components/footer"
 import Main from "./pages/item/main"
@@ -25,9 +23,15 @@ const App = () => {
     const getAllItems = async() => {
       const response = await fetch("http://localhost:5000/item/unread")
       const jsonResponse = await response.json()
+      let pages_sum = 0
+      let numbers_sum = 0
       jsonResponse.unreadItems.map(item => {
-        books.pages += item.pages
-        books.numbers += 1
+        pages_sum += item.pages 
+        numbers_sum += 1
+      })
+      setBooks({
+        pages: pages_sum,
+        numbers: numbers_sum,
       })
     }
     getAllItems()
@@ -52,9 +56,7 @@ const App = () => {
         <Route path="/item/unread" element={<ReadUnread />} />
         <Route path="/" element={<Main login={login} books={books}/>} />
         <Route path="/item/single/:id" element={<ReadSingle books={books} setBooks={setBooks}/>} />
-        <Route path="/item/create" element={<Create />} />
-        {/* <Route path="/item/update/:id" element={<Update />} /> */}
-        <Route path="/item/delete/:id" element={<Delete />} />
+        <Route path="/item/create" element={<Create books={books} setBooks={setBooks} />} />
         <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
       <Footer />
