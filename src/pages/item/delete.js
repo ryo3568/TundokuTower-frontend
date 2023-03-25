@@ -16,7 +16,7 @@ const DeleteItem = () => {
     useEffect(() => {
         document.title = "削除ページ"
         const getSingleItem = async() => {
-            const response = await fetch(`http://localhost:5000/item/${params.id}`)
+            const response = await fetch(`http://localhost:5000/item/single/${params.id}`)
             const jsonResponse = await response.json()
             setTitle(jsonResponse.singleItem.title)
             setAuthor(jsonResponse.singleItem.author)
@@ -54,7 +54,7 @@ const DeleteItem = () => {
                 <h1>アイテム削除</h1>
                 <form onSubmit={handleSubmit}>
                     <h2>{title}</h2>
-                    {image && <img src={require(`../../images${image}`)} alt="item"/>}
+                    {image && <img src={image} alt="item"/>}
                     <h3>{author}</h3>
                     <h4>{isbn}</h4>
                     <h5>{publisher}</h5>
