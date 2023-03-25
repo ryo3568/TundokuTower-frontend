@@ -2,7 +2,7 @@
 const Footer = () => {
     return (
         <footer>
-            <p>@{new Date().getFullYear()} TundokuTower</p>
+            <p>©{new Date().getFullYear()} TundokuTower</p>
         </footer>
     )
 }
