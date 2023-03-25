@@ -83,10 +83,12 @@ const ReadSingle = (props) => {
                 }
             })
             const jsonData = await response.json()
-            props.setBooks({
-                pages: props.books.pages - page,
-                numbers: props.books.numbers - 1
-            })
+            if(!status){
+                props.setBooks({
+                    pages: props.books.pages - page,
+                    numbers: props.books.numbers - 1
+                })
+            }
             navigate("/")
         }catch(err){
             alert("アイテム削除失敗")

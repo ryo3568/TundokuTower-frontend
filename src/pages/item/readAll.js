@@ -34,8 +34,6 @@ const ReadAll = () => {
                             <div>
                                 <h2>{item.title}</h2>
                                 <h3>{item.author}</h3>
-                                <h4>{item.isbn}</h4>
-                                <h5>{item.publisher}</h5>
                             </div>
                         </Link>
                     )}
@@ -48,8 +46,6 @@ const ReadAll = () => {
                             <div>
                                 <h2>{item.title}</h2>
                                 <h3>{item.author}</h3>
-                                <h4>{item.isbn}</h4>
-                                <h5>{item.publisher}</h5>
                             </div>
                         </Link>
                     )}
