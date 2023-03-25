@@ -13,23 +13,26 @@ const Main = (props) => {
     const cup = {
         "name": "コップ",
         "height": 10,
-        "image": cupImage
+        "image": cupImage,
     }
 
     const cat = {
         "name": "猫",
         "height": 40,
-        "image": catImage
+        "image": catImage,
     }
 
     const car = {
         "name": "車",
         "height": 200,
-        "image": carImage
+        "image": carImage,
     }
 
     const [object, setObject] = useState(cup)
     const [height, setHeight] = useState()
+    const [style, setStyle] = useState({
+        height: object.height * 10
+    })
 
     useEffect(() => {
         document.title = "つんどくタワー"
@@ -42,16 +45,15 @@ const Main = (props) => {
             res /= 100
             setHeight(res)
         }
-    }, [])
+        setStyle({
+            height: object.height * 300 / height
+        })
+    }, [props.books, object])
 
     const changeObject = () => {
         if(object.name === "コップ") setObject(cat)
         else if(object.name === "猫") setObject(car)
         else setObject(cup)
-    }
-
-    const style = {
-        height: object.height * 300 / height
     }
     
     return (
@@ -59,11 +61,9 @@ const Main = (props) => {
             {props.login && 
                 <div>
                     <h1>積読本の冊数：{props.books.numbers}冊</h1>
-
-                    <h1>積読の高さ:{calc_backwidth()}cm</h1>
+                    <h1>積読の高さ:{height}cm</h1>
                     <h1>比較対象：{object.name}</h1>
                     <h1>比較対象の高さ：{object.height}cm</h1>
-
                 </div>
             }
             <div className="main">

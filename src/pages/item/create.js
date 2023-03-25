@@ -41,6 +41,10 @@ const CreateItem = (props) => {
                     status: false,
                 })
             })
+            props.setBooks({
+                pages: props.books.pages + book.items[0].volumeInfo.pageCount, 
+                numbers: props.books.numbers + 1,
+            })
             navigate("/")
         }catch(err){
             alert("アイテム作成失敗")

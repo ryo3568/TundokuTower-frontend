@@ -25,9 +25,15 @@ const App = () => {
     const getAllItems = async() => {
       const response = await fetch("http://localhost:5000/item/unread")
       const jsonResponse = await response.json()
+      let pages_sum = 0
+      let numbers_sum = 0
       jsonResponse.unreadItems.map(item => {
-        books.pages += item.pages
-        books.numbers += 1
+        pages_sum += item.pages 
+        numbers_sum += 1
+      })
+      setBooks({
+        pages: pages_sum,
+        numbers: numbers_sum,
       })
     }
     getAllItems()
