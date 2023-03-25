@@ -29,7 +29,7 @@ const Main = (props) => {
     }
 
     const [object, setObject] = useState(objects.cup)
-    const [height, setHeight] = useState()
+    const [height, setHeight] = useState(1)
     const [style, setStyle] = useState({
         height: object.height * 10
     })
@@ -40,14 +40,21 @@ const Main = (props) => {
             setHeight(0)
         }
         else{
-            var res = (props.books.pages *  0.1/ 2 + 0.15 * 2) *10
+            var res = (props.books.pages *  0.1 / 2 + 0.15 * 2) *10
             res = Math.round(res)
             res /= 100
             setHeight(res)
         }
-        setStyle({
-            height: object.height * 300 / height
-        })
+        if(height === 0){
+            setStyle({
+                height: 200
+            })
+        }
+        else{
+            setStyle({
+                height: object.height * 300 / height
+            })
+        }
     }, [props.books, object, height])
 
     return (
