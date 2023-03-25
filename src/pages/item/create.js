@@ -100,12 +100,12 @@ const CreateItem = (props) => {
     if(loginUser){
         return (
             <div>
-                <h1>本の追加</h1>
-                <form onSubmit={handleSearch}>
-                    <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text" name="title" placeholder="タイトル"  />
-                    <input value={author} onChange={(e)=>setAuthor(e.target.value)} type="text" name="author" placeholder="著者名"  />
-                    <input value={isbn} onChange={(e)=>setISBN(e.target.value)} type="text" name="isbn" placeholder="ISBN" />
-                    <button>検索</button>
+                <h1 className="h1-create">本の追加</h1>
+                <form className="create-box" onSubmit={handleSearch}>
+                    <input className="create-text" value={title} onChange={(e)=>setTitle(e.target.value)} type="text" name="title" placeholder="タイトル"  />
+                    <input className="create-text" value={author} onChange={(e)=>setAuthor(e.target.value)} type="text" name="author" placeholder="著者名"  />
+                    <input className="create-text" value={isbn} onChange={(e)=>setISBN(e.target.value)} type="text" name="isbn" placeholder="ISBN" />
+                    <button className="search">検索</button>
                 </form>
                 {showResult && showResults()}
             </div>
