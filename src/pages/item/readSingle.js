@@ -1,15 +1,15 @@
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, useNavigate } from "react-router-dom"
 import {useState, useEffect} from "react"
 
 const ReadSingle = () => {
 
     const params = useParams()
+    const navigate = useNavigate()
 
     const [title, setTitle] = useState("")
     const [author, setAuthor] = useState("")
-    const [isbn, setISBN] = useState("")
-    const [publisher, setPublisher] = useState("")
     const [image, setImage] = useState("")
+    const [status, setStatus] = useState()
 
 
     useEffect(() => {
@@ -20,12 +20,42 @@ const ReadSingle = () => {
             const jsonResponse = await response.json()
             setTitle(jsonResponse.singleItem.title)
             setAuthor(jsonResponse.singleItem.author)
-            setISBN(jsonResponse.singleItem.isbn)
-            setPublisher(jsonResponse.singleItem.publisher)
             setImage(jsonResponse.singleItem.image)
+            setStatus(jsonResponse.singleItem.status)
         }
         getSingleItem()
     }, [params.id, title])
+
+    const changeStatus = async(e) => {
+        e.preventDefault()
+        try{
+            const response = await fetch(`http://localhost:5000/item/update/${params.id}`, {
+                method: "PUT", 
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                    "authorization": `Bearer ${localStorage.getItem("token")}`
+                }, 
+                body: JSON.stringify({
+                    title: title,
+                    author: author,
+                    image: image,
+                    status: !status
+                })
+            })
+            navigate("/")
+        }catch(err){
+            alert("変更失敗")
+        }
+    }
+
+    const show_button = () => {
+        if(status){
+            return <button onClick={changeStatus}>積読にもどす</button>
+        }else{
+            return <button onClick={changeStatus}>読了</button>
+        }
+    }
     
     return (
         <div>
@@ -33,14 +63,13 @@ const ReadSingle = () => {
                 {image && <img src={image} alt="item" />}
             </div>
             <div>
-                <h1>{title}</h1>
-                <h2>{author}</h2>
-                <h3>{isbn}</h3>
-                <h4>{publisher}</h4>
+                <h1>タイトル：{title}</h1>
+                <h2>著者名：{author}</h2>
             </div>
             <div>
-                <Link to={`/item/update/${params.id}`}>アイテム編集</Link>
-                <Link to={`/item/delete/${params.id}`}>アイテム削除</Link>
+                {show_button()}
+                <br/>
+                <Link to={`/item/delete/${params.id}`}>削除</Link>
             </div>
         </div>
     )

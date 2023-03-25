@@ -23,7 +23,6 @@ const Login = (props) => {
             })
             const jsonResponse = await response.json()
             localStorage.setItem("token", jsonResponse.token)
-            alert(jsonResponse.message)
             props.setLogin(true)
             navigate("/")
         }catch(err){
