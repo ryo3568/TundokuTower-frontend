@@ -1,7 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom"
 import {useState, useEffect} from "react"
 
-const ReadSingle = () => {
+const ReadSingle = (props) => {
 
     const params = useParams()
     const navigate = useNavigate()
@@ -9,6 +9,7 @@ const ReadSingle = () => {
     const [title, setTitle] = useState("")
     const [author, setAuthor] = useState("")
     const [image, setImage] = useState("")
+    const [page, setPage] = useState()
     const [status, setStatus] = useState()
 
 
@@ -22,6 +23,7 @@ const ReadSingle = () => {
             setAuthor(jsonResponse.singleItem.author)
             setImage(jsonResponse.singleItem.image)
             setStatus(jsonResponse.singleItem.status)
+            setPage(jsonResponse.singleItem.pages)
         }
         getSingleItem()
     }, [params.id, title])
@@ -43,6 +45,18 @@ const ReadSingle = () => {
                     status: !status
                 })
             })
+            if(status){
+                props.setBooks({
+                    pages: props.books.pages + page,
+                    numbers: props.books.numbers + 1
+                })
+            }
+            else{
+                props.setBooks({
+                    pages: props.books.pages - page,
+                    numbers: props.books.numbers - 1
+                })
+            }
             navigate("/")
         }catch(err){
             alert("変更失敗")
