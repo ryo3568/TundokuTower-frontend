@@ -74,6 +74,19 @@ path: src/pages/item/main.js */
     height: 300px;
 }
 
+.box2 {
+    margin: 2em auto;
+    padding:2em;
+    border: double 5px #5FC7D6;
+    background-color:#EAEBEE;
+}
+
+.content {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
 
 
 /* ログイン画面
