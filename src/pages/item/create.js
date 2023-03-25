@@ -86,7 +86,6 @@ const CreateItem = (props) => {
                 return <h1>該当書籍なし</h1>
             }
             else{
-                console.log(book)
                 return (
                     book.items.map(item => 
                     <div key={item.id}>
