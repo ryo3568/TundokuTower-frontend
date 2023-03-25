@@ -7,7 +7,7 @@ import ReadSingle from "./pages/item/readSingle"
 import ReadFinished from "./pages/item/readFinished"
 import ReadUnread from "./pages/item/readUnread"
 import Create from "./pages/item/create"
-import Update from "./pages/item/update"
+// import Update from "./pages/item/update"
 import Delete from "./pages/item/delete"
 import Header from "./components/header"
 import Footer from "./components/footer"
@@ -31,12 +31,19 @@ const App = () => {
       })
     }
     getAllItems()
+    const token = localStorage.getItem('token')
+    if(token){
+      setLogin(true)
+    }
+    else{
+      setLogin(false)
+    }
   }, [])
 
   return (
     <BrowserRouter>
     <div>
-      <Header login={login} />
+      <Header login={login} setLogin={setLogin} />
       <Routes>
         <Route path="/user/register" element={<Register />} />
         <Route path="/user/login" element={<Login setLogin={setLogin}/>} />
@@ -46,7 +53,7 @@ const App = () => {
         <Route path="/" element={<Main login={login} books={books}/>} />
         <Route path="/item/single/:id" element={<ReadSingle books={books} setBooks={setBooks}/>} />
         <Route path="/item/create" element={<Create />} />
-        <Route path="/item/update/:id" element={<Update />} />
+        {/* <Route path="/item/update/:id" element={<Update />} /> */}
         <Route path="/item/delete/:id" element={<Delete />} />
         <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
