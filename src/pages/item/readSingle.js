@@ -63,7 +63,7 @@ const ReadSingle = (props) => {
         }
     }
 
-    const show_button = () => {
+    const showButton = () => {
         if(status){
             return <button onClick={changeStatus}>積読にもどす</button>
         }else{
@@ -81,7 +81,7 @@ const ReadSingle = (props) => {
                 <h2>著者名：{author}</h2>
             </div>
             <div>
-                {show_button()}
+                {showButton()}
                 <br/>
                 <Link to={`/item/delete/${params.id}`}>削除</Link>
             </div>

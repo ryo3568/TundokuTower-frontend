@@ -11,7 +11,7 @@ const Header = (props) => {
         props.setLogin(false)
     }
 
-    const show_nav = () => {
+    const showNav = () => {
         if(props.login){
             return (
                 <ul className="header-nav-login">
@@ -34,7 +34,7 @@ const Header = (props) => {
         <header>
             <div><Link to="/"><img className="header-logo" src={logo}/></Link></div>
             <nav>
-                {show_nav()}
+                {showNav()}
             </nav>
         </header>
     )

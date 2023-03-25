@@ -5,8 +5,8 @@ import tsundoku from "../../images/tsundoku.png"
 
 // 対象物
 import catImage from "../../images/kuroneko.png"
-import cupImage from "../../images/hondana.png"
-import carImage from "../../images/tsundoku.png"
+import cupImage from "../../images/cup.png"
+import carImage from "../../images/car.png"
 
 const Main = (props) => {
 
@@ -28,34 +28,46 @@ const Main = (props) => {
         "image": carImage
     }
 
-    const [object, setObject] = useState(cat)
-
-    const calc_backwidth = () => {
-        if(props.books.numbers == 0) return 0
-        var res = (props.books.pages *  0.1/ 2 + 0.15 * 2) *10
-        res = Math.round(res)
-        res /= 100
-        return res
-    }
+    const [object, setObject] = useState(cup)
+    const [height, setHeight] = useState()
 
     useEffect(() => {
         document.title = "つんどくタワー"
-    }, [props.books])
+        if(props.books.numbers == 0) {
+            setHeight(0)
+        }
+        else{
+            var res = (props.books.pages *  0.1/ 2 + 0.15 * 2) *10
+            res = Math.round(res)
+            res /= 100
+            setHeight(res)
+        }
+    }, [])
 
+    const changeObject = () => {
+        if(object.name === "コップ") setObject(cat)
+        else if(object.name === "猫") setObject(car)
+        else setObject(cup)
+    }
 
+    const style = {
+        height: object.height * 300 / height
+    }
+    
     return (
         <div>
             {props.login && 
                 <div>
                     <h1>積読本の冊数：{props.books.numbers}冊</h1>
-                    <h1>積読の高さ:{calc_backwidth()}cm</h1>
+                    <h1>積読の高さ:{height}cm</h1>
                     <h1>対象物：{object.name}</h1>
                     <h1>対象物の高さ：{object.height}cm</h1>
                 </div>
             }
-            <div>
+            <div className="main">
                 <Link to="/item/finished"><img className="bookshelf" src={bookshelf}/></Link>
-                <img className="cat" src={object.image} />
+                <img className="cup" style={style} src={object.image} />
+                <button onClick={changeObject}>対象物を変更</button>
                 <Link to="/item/unread"><img className="tsundoku" src={tsundoku}/></Link>
             </div>
         </div>
