@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
-import allBook from "../images/hon-ichiran.png"
-import registerBook from "../images/hon-touroku.png"
-import account from "../images/account.png"
+import allBook from "../images/hon-ichiran.PNG"
+import registerBook from "../images/hon-touroku.PNG"
+import account from "../images/account.PNG"
 import logo from "../images/logo.png"
 
 const Header = (props) => {
