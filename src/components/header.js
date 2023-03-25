@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import allBook from "../images/hon-ichiran.PNG"
 import registerBook from "../images/hon-touroku.PNG"
 import account from "../images/account.PNG"
+import logo from "../images/logo.png"
 
 const Header = (props) => {
 
@@ -26,7 +27,7 @@ const Header = (props) => {
     }
     return (
         <header>
-            <div><Link to="/">積読タワー</Link></div>
+            <div><Link to="/"><img className="header-logo" src={logo}/></Link></div>
             <nav>
                 {show_nav()}
             </nav>

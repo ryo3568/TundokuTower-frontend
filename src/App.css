@@ -1,14 +1,5 @@
-.bookshelf {
-    height: 200px;
-}
-
-.cat {
-    height: 200px;
-}
-
-.tsundoku {
-    height: 200px;
-}
+/* ヘッダー
+path: src/components/header.js */
 
 .header-nav {
     list-style: none;
@@ -25,3 +16,46 @@
 .account {
     height: 200px;
 }
+
+.header-logo {
+    height: 100px;
+}
+
+/* フッター
+path: src/components/footer.js */
+
+/* メイン画面　
+path: src/pages/item/main.js */
+
+.bookshelf {
+    height: 200px;
+}
+
+.cat {
+    height: 200px;
+}
+
+.tsundoku {
+    height: 200px;
+}
+
+/* ログイン画面
+path: src/pages/user/login.js */
+
+/* ユーザー登録画面
+path: src/pages/user/register.js */
+
+/* 蔵書一覧画面
+path: src/pages/item/readAll.js */
+
+/* 積読本一覧画面
+path: src/pages/item/readUnread.js */
+
+/* 読了本一覧画面
+path: src/pages/item/readFinished.js */
+
+/* 本の登録画面
+path: src/pages/item/create.js */
+
+/* 本の詳細画面
+path: src/pages/item/readSingle.js */
