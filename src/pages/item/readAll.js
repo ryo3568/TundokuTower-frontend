@@ -11,11 +11,11 @@ const ReadAll = () => {
         document.title = "All Books"
 
         const getAllItems = async() => {
-            const finishedResponse = await fetch("http://localhost:5000/item/finished")
+            const finishedResponse = await fetch("https://tundoku-tower.onrender.com/item/finished")
             const jsonFinishedResponse = await finishedResponse.json()
             setFinishedItems(jsonFinishedResponse)
 
-            const unreadResponse = await fetch("http://localhost:5000/item/unread")
+            const unreadResponse = await fetch("https://tundoku-tower.onrender.com/item/unread")
             const jsonUnreadResponse = await unreadResponse.json()
             setUnreadItems(jsonUnreadResponse)
         }
