@@ -147,7 +147,7 @@ path: src/pages/item/main.js */
 /* ログイン画面
 path: src/pages/user/login.js */
 h1{
-    font-size: 25px;
+    /* font-size: 25px; */
     font-family: "游ゴシック体","Yu Gothic","YuGothic",sans-serif;
     text-align: center;
 }
@@ -223,37 +223,20 @@ path: src/pages/user/register.js */
 /* 蔵書一覧画面
 path: src/pages/item/readAll.js */
 
-
-.finishedItems{
- display: flex;
- flex-wrap: wrap;
- align-items: center;
- align-content:flex-start;
+.books{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content:flex-start;
+    border-bottom: 3px solid gray;
+    text-align: center;
 }
 
-.unreadbooks{
- display: flex;
- flex-wrap: wrap;
- align-items: center;
- align-content:flex-start;
- 
-}
-
-.unreadbooks-img{
+.books-img{
     margin: 20px;
+    height: 200px;
+    text-align: center;
 }
-
-.h3-unreadbooks{
-    font-size: 15px;
-    margin: 20px;
-}
-
-.h4-unreadbooks{
-    font-size:12px;
-    margin: 20px;
-}
-
-
 
 /* 積読本一覧画面
 path: src/pages/item/readUnread.js */

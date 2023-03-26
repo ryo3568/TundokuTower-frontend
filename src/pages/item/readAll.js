@@ -25,32 +25,34 @@ const ReadAll = () => {
     return (
         <div>
             <div>
-                <h1>蔵書一覧</h1>
-                <div className="finishedItems">
+                <h1 className="allbooks-title">蔵書一覧</h1>
+                <div>
                     <h2>読了本</h2>
-                    {finishedItems && finishedItems.finishedItems.map(item => 
-                        <Link to={`/item/single/${item._id}`} key={item._id}>
-                            <img src={item.image} alt="item" />
-                            <div>
-                                <h2>『{item.title}』</h2>
-                                <h3>{item.author}</h3>
-                            </div>
-                        </Link>
-                    )}
+                    <div className="books">
+                        {finishedItems && finishedItems.finishedItems.map(item => 
+                            <Link to={`/item/single/${item._id}`} key={item._id}>
+                                <img className="books-img" src={item.image} alt="item" />
+                                <div>
+                                    <h3>『{item.title}』</h3>
+                                    <h4>{item.author}</h4>
+                                </div>
+                            </Link>
+                        )}
+                    </div>
                 </div>
-                <div className="unreadbooks">
-                
+                <div>
                     <h2>積読本</h2>
-    
-                    {unreadItems && unreadItems.unreadItems.map(item => 
-                        <Link to={`/item/single/${item._id}`} key={item._id}>
-                            <img className="unreadbooks-img" src={item.image} alt="item" />
-                            <div>
-                                <h3 className="h3-unreadbooks">『{item.title}』</h3>
-                                <h4 className="h4-unreadbooks">{item.author}</h4>
-                            </div>
-                        </Link>
-                    )}
+                    <div className="books">
+                        {unreadItems && unreadItems.unreadItems.map(item => 
+                            <Link to={`/item/single/${item._id}`} key={item._id}>
+                                <img className="books-img" src={item.image} alt="item" />
+                                <div>
+                                    <h3>『{item.title}』</h3>
+                                    <h4>{item.author}</h4>
+                                </div>
+                            </Link>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>

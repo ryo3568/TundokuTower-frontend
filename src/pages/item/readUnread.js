@@ -21,15 +21,17 @@ const ReadUnread = () => {
         <div>
             <div>
                 <h1>積読本一覧</h1>
-                {unreadItems && unreadItems.unreadItems.map(item => 
-                    <Link to={`/item/single/${item._id}`} key={item._id}>
-                        <img src={item.image} alt="item" />
-                        <div>
-                            <h2>{item.title}</h2>
-                            <h3>{item.author}</h3>
-                        </div>
-                    </Link>
-                )}
+                <div className="books">
+                    {unreadItems && unreadItems.unreadItems.map(item => 
+                        <Link to={`/item/single/${item._id}`} key={item._id}>
+                            <img className="books-img" src={item.image} alt="item" />
+                            <div>
+                                <h2>{item.title}</h2>
+                                <h3>{item.author}</h3>
+                            </div>
+                        </Link>
+                    )}
+                </div>
             </div>
         </div>
     )
