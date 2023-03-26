@@ -26,26 +26,28 @@ const ReadAll = () => {
         <div>
             <div>
                 <h1>蔵書一覧</h1>
-                <div>
+                <div className="finishedItems">
                     <h2>読了本</h2>
                     {finishedItems && finishedItems.finishedItems.map(item => 
                         <Link to={`/item/single/${item._id}`} key={item._id}>
                             <img src={item.image} alt="item" />
                             <div>
-                                <h2>{item.title}</h2>
+                                <h2>『{item.title}』</h2>
                                 <h3>{item.author}</h3>
                             </div>
                         </Link>
                     )}
                 </div>
-                <div>
+                <div className="unreadbooks">
+                
                     <h2>積読本</h2>
+    
                     {unreadItems && unreadItems.unreadItems.map(item => 
                         <Link to={`/item/single/${item._id}`} key={item._id}>
-                            <img src={item.image} alt="item" />
+                            <img className="unreadbooks-img" src={item.image} alt="item" />
                             <div>
-                                <h2>{item.title}</h2>
-                                <h3>{item.author}</h3>
+                                <h3 className="h3-unreadbooks">『{item.title}』</h3>
+                                <h4 className="h4-unreadbooks">{item.author}</h4>
                             </div>
                         </Link>
                     )}
