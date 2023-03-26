@@ -87,7 +87,62 @@ path: src/pages/item/main.js */
     justify-content: center;
 }
 
+.object {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.selectbox-002 {
+    position: relative;
+}
+
+.selectbox-002::before,
+.selectbox-002::after {
+    position: absolute;
+    content: '';
+    pointer-events: none;
+}
+
+.selectbox-002::before {
+    right: 0;
+    display: inline-block;
+    width: 2.8em;
+    height: 2.8em;
+    border-radius: 0 3px 3px 0;
+    background-color: #5FC7D6;
+    content: '';
+}
+
+.selectbox-002::after {
+    position: absolute;
+    top: 50%;
+    right: 1.4em;
+    transform: translate(50%, -50%) rotate(45deg);
+    width: 6px;
+    height: 6px;
+    border-bottom: 3px solid #fff;
+    border-right: 3px solid #fff;
+    content: '';
+}
+
+.selectbox-002 select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    min-width: 230px;
+    height: 2.8em;
+    padding: .4em 3.6em .4em .8em;
+    border: 2px solid #5FC7D6;
+    border-radius: 3px;
+    color: #333;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.selectbox-002 select:focus {
+    outline: 1px solid #5FC7D6;
+}
 
 /* ログイン画面
 path: src/pages/user/login.js */
