@@ -33,7 +33,7 @@ const ReadAll = () => {
                             <Link to={`/item/single/${item._id}`} key={item._id}>
                                 <img className="books-img" src={item.image} alt="item" />
                                 <div>
-                                    <h3>『{item.title}』</h3>
+                                    <h3>『{item.title.length >= 5 ? item.title.substring(0,5) + "..." : item.title}』</h3>
                                     <h4>{item.author}</h4>
                                 </div>
                             </Link>
@@ -41,13 +41,13 @@ const ReadAll = () => {
                     </div>
                 </div>
                 <div>
-                    <h2>積読本</h2>
+                    <h2 className="border">積読本</h2>
                     <div className="books">
                         {unreadItems && unreadItems.unreadItems.map(item => 
                             <Link to={`/item/single/${item._id}`} key={item._id}>
                                 <img className="books-img" src={item.image} alt="item" />
                                 <div>
-                                    <h3>『{item.title}』</h3>
+                                    <h3>『{item.title.length > 5 ? item.title.substring(0,5) + "..." : item.title}』</h3>
                                     <h4>{item.author}</h4>
                                 </div>
                             </Link>

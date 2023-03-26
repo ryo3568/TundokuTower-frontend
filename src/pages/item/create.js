@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import useAuth from "../../utils/useAuth"
-import bookImage from "../../images/book.png"
+import bookImage from "../../images/No-image-book.png"
 
 const CreateItem = (props) => {
     const navigate = useNavigate() 
@@ -89,12 +89,12 @@ const CreateItem = (props) => {
                 return (
                     book.items.map(item => 
                     <div key={item.id}>
-                        <h1>タイトル：{item.volumeInfo.title}</h1>
-                        <h2>著者：{item.volumeInfo.authors}</h2>
                         {item.volumeInfo.imageLinks ?
-                         <img src={item.volumeInfo.imageLinks.thumbnail} alt="書影"/>
+                         <img className="books-img" src={item.volumeInfo.imageLinks.thumbnail} alt="書影"/>
                         :
                         <img className="candidate" src={bookImage} />}
+                        <h3>『{item.volumeInfo.title.length > 5 ? item.volumeInfo.title.substring(0,5) + "..." : item.volumeInfo.title}』</h3>
+                        <h4>{item.volumeInfo.authors[0]}</h4>
                         <button onClick={(e) => handleSubmit(e, item)}>追加</button>
                     </div>
                 ))
@@ -114,7 +114,9 @@ const CreateItem = (props) => {
                     <input className="create-text" value={isbn} onChange={(e)=>setISBN(e.target.value)} type="text" name="isbn" placeholder="ISBN" />
                     <button className="search">検索</button>
                 </form>
-                {showResult && showResults()}
+                <div className="books">
+                    {showResult && showResults()}
+                </div>
             </div>
         )
     }
