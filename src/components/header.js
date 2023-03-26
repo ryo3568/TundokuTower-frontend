@@ -24,8 +24,8 @@ const Header = (props) => {
         else{
             return(
                 <ul className="header-nav-logout">
-                    <li><Link to="/user/register">新規登録</Link></li>
-                    <li><Link to="/user/login">ログイン</Link></li>
+                    <Link to="/user/register"><li>新規登録</li></Link>
+                    <Link to="/user/login"><li>ログイン</li></Link>
                 </ul>
             )
         }
