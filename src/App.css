@@ -12,6 +12,12 @@ header{
     padding: 20px;
 }
 
+.header-nav-logout li {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 li{
     float:left;
     padding: 20px;
