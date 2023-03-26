@@ -63,21 +63,22 @@ const Main = (props) => {
                 <div className="box2">
                     <h1>積読本の冊数：{props.books.numbers}冊</h1>
                     <h1>積読の高さ:{height}cm</h1>
-                    <h1>比較対象：{object.name}</h1>
+                    <div className="object">
+                        <h1>比較対象：</h1>
+                        <label className="selectbox-002">
+                            <select onChange={(e) => setObject(objects[e.target.value])}>
+                                <option value="cup">コップ</option>
+                                <option value="cat">猫</option>
+                                <option value="car">車</option>
+                            </select>
+                        </label>
+                    </div>
                     <h1>比較対象の高さ：{object.height}cm</h1>
                 </div>
             }
             <div className="content">
                 <Link to="/item/finished"><img className="bookshelf" src={bookshelf}/></Link>
-                <div className="object">
-                    <img style={style} src={object.image} />
-                    <label htmlFor="object">比較対象</label>
-                    <select name="object" onChange={(e) => setObject(objects[e.target.value])}>
-                        <option value="cup">コップ</option>
-                        <option value="cat">猫</option>
-                        <option value="car">車</option>
-                    </select>
-                </div>
+                <img style={style} src={object.image} />
                 <Link to="/item/unread"><img className="tsundoku" src={tsundoku}/></Link>
             </div>
         </div>
